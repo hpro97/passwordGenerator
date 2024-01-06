@@ -122,11 +122,9 @@ if (passLength < 8 || passLength > 128) {
 
 console.log(passLength);
 
-//-------------------------------------------//
-//PASS WORD LENGTH PROMTS WORKING AS EXPECTED//
-//-------------------------------------------//
-
-//prompts working as expected
+//------------------------------------------//
+//PASSWORD LENGTH PROMTS WORKING AS EXPECTED//
+//------------------------------------------//
 
 //     * Character types
 //       * Lowercase
@@ -138,6 +136,15 @@ const isLowerCase = confirm("Include lowercase chars?");
 const isUpperCase = confirm("Include uppercase chars?");
 const isNumeric = confirm("Include numeric chars?");
 const isSpecial = confirm("Include special chars?");
+
+console.log(isLowerCase);
+console.log(isUpperCase);
+console.log(isNumeric);
+console.log(isSpecial);
+
+//----------------------------------------------//
+//CHARACTER TPE CONFIRMATION WORKING AS EXPECTED//
+//----------------------------------------------//
 
 //   * Code should validate for each input and at least one character type should be selected
 
