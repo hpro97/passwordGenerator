@@ -142,9 +142,9 @@ console.log(isUpperCase);
 console.log(isNumeric);
 console.log(isSpecial);
 
-//----------------------------------------------//
-//CHARACTER TPE CONFIRMATION WORKING AS EXPECTED//
-//----------------------------------------------//
+//-----------------------------------------------//
+//CHARACTER TYPE CONFIRMATION WORKING AS EXPECTED//
+//-----------------------------------------------//
 
 //   * Code should validate for each input and at least one character type should be selected
 
@@ -166,6 +166,12 @@ let chosenCharacteristics = "";
   if (isSpecial) {
     chosenCharacteristics += specialCharacters;
   }
+
+console.log(chosenCharacteristics);
+
+//----------------------------------------------------------//
+//CHOSEN CHAR ARRAY DISPLAY CONFIRMATION WORKING AS EXPECTED//
+//----------------------------------------------------------//
 
 //   * Once prompts are answered then the password should be generated
 // function to generate password
