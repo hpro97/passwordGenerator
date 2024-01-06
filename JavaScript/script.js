@@ -120,6 +120,14 @@ if (passLength < 8 || passLength > 128) {
     alert("Not a Number. Please enter a number between 8 and 128.");
   }
 
+console.log(passLength);
+
+//-------------------------------------------//
+//PASS WORD LENGTH PROMTS WORKING AS EXPECTED//
+//-------------------------------------------//
+
+//prompts working as expected
+
 //     * Character types
 //       * Lowercase
 //       * Uppercase
