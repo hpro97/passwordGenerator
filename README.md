@@ -1,5 +1,6 @@
 # passwordGeneratorChallengeHarry
-this application generates a random password based on specific criteria selected
+this application generates a random password based on specific criteria selected<br>
+PLEASE REFRESH THE APPLICATION UPON ENTRY AS SOMETIMES THE PROMPTS WILL NOT INITIATE UPON FIRST VISIT<br>
 
 ## Description 
 
@@ -14,7 +15,9 @@ I built this project to showcase my ability to solve JS problems i encounter wit
 
 ## Link:
 DEPLOYED: https://hpro97.github.io/passwordGeneratorChallengeHarry/<br>
+PLEASE REFRESH THE APPLICATION UPON ENTRY AS SOMETIMES THE PROMPTS WILL NOT INITIATE UPON FIRST VISIT<br>
 GIT REPO: https://github.com/hpro97/passwordGeneratorChallengeHarry<br>
+GIT JS FILE: https://github.com/hpro97/passwordGeneratorChallengeHarry/blob/main/JavaScript/script.js<br>
 
 ## Screenshot
 
