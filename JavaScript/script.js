@@ -88,11 +88,6 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// Function for getting a random element from an array
-// function getRandom(arr) {
-
-// }
-
 //maybe need adding
 
 
@@ -100,12 +95,6 @@ var upperCasedCharacters = [
 //---------------------my code--------------------------//
 //------------------------------------------------------//
 
-// * Generate a password when the button is clicked
-// Function to generate password with user input
-
-//------------------------------------------------------//
-//---------link to button when clicked in html----------//
-//------------------------------------------------------//
 
 
 //   * Present a series of prompts for password criteria
@@ -132,15 +121,30 @@ console.log(passLength);
 //       * Numeric
 //       * Special characters ($@%&*, etc)
 
-const isLowerCase = confirm("Include lowercase chars?");
-const isUpperCase = confirm("Include uppercase chars?");
-const isNumeric = confirm("Include numeric chars?");
-const isSpecial = confirm("Include special chars?");
+function getCharacterTypeConfirmation() {
+  const isLowerCase = confirm("Include lowercase chars?");
+  const isUpperCase = confirm("Include uppercase chars?");
+  const isNumeric = confirm("Include numeric chars?");
+  const isSpecial = confirm("Include special chars?");
 
-console.log(isLowerCase);
-console.log(isUpperCase);
-console.log(isNumeric);
-console.log(isSpecial);
+  console.log(isLowerCase);
+  console.log(isUpperCase);
+  console.log(isNumeric);
+  console.log(isSpecial);
+
+  return {
+    isLowerCase,
+    isUpperCase,
+    isNumeric,
+    isSpecial
+  };
+}
+
+const characterTypes = getCharacterTypeConfirmation();
+const isLowerCase = characterTypes.isLowerCase;
+const isUpperCase = characterTypes.isUpperCase;
+const isNumeric = characterTypes.isNumeric;
+const isSpecial = characterTypes.isSpecial;
 
 //-----------------------------------------------//
 //CHARACTER TYPE CONFIRMATION WORKING AS EXPECTED//
@@ -148,26 +152,41 @@ console.log(isSpecial);
 
 //   * Code should validate for each input and at least one character type should be selected
 
-if (!isLowerCase && !isUpperCase && !isNumeric && !isSpecial) {
+function validateCharacterTypes() {
+  if (!isLowerCase && !isUpperCase && !isNumeric && !isSpecial) {
     alert("You haven't picked a char type.");
+    return false;
   }
+  return true;
+}
+
+validateCharacterTypes();
+
 //    * make chosen characteristics as var
 
-let chosenCharacteristics = "";
+function getChosenCharacteristics() {
+  let chosenCharacteristics = [];
+
   if (isLowerCase) {
-    chosenCharacteristics += lowerCasedCharacters;
-  }
-  if (isUpperCase) {
-    chosenCharacteristics += upperCasedCharacters;
-  }
-  if (isNumeric) {
-    chosenCharacteristics += numericCharacters;
-  }
-  if (isSpecial) {
-    chosenCharacteristics += specialCharacters;
+    chosenCharacteristics = chosenCharacteristics.concat(lowerCasedCharacters);
   }
 
-console.log(chosenCharacteristics);
+  if (isUpperCase) {
+    chosenCharacteristics = chosenCharacteristics.concat(upperCasedCharacters);
+  }
+
+  if (isNumeric) {
+    chosenCharacteristics = chosenCharacteristics.concat(numericCharacters);
+  }
+
+  if (isSpecial) {
+    chosenCharacteristics = chosenCharacteristics.concat(specialCharacters);
+  }
+
+  return chosenCharacteristics;
+}
+
+let chosenCharacteristics = getChosenCharacteristics();
 
 //----------------------------------------------------------//
 //CHOSEN CHAR ARRAY DISPLAY CONFIRMATION WORKING AS EXPECTED//
@@ -175,28 +194,38 @@ console.log(chosenCharacteristics);
 
 //   * Once prompts are answered then the password should be generated
 // function to generate password
-function generatePassword() {
 
-let password = "";
+function generatePassword() {
+  let password = "";
+
   for (let i = 0; i < passLength; i++) {
-    let randomChar = Math.floor(Math.random() * chosenCharacteristics);
-    password += chosenCharacteristics.charAt(randomChar);
+    let randomChar = Math.floor(Math.random() * chosenCharacteristics.length);
+    password += chosenCharacteristics[randomChar];
   }
-  return;
+
+  return password;
 }
 
+let generatedPassword = generatePassword();
+console.log(generatedPassword);
+
+//----------------------------------------------------------//
+//------------------------password gen fixed----------------//
+//----------------------------------------------------------//
+
 // Get references to the #generate element
+
 var generateBtn = document.querySelector('#generate');
 
+// * Generate a password when the button is clicked
+// Function to generate password with user input
 
 //------------------------------------------------------//
-//---------make this happen when button clicked --------//
+//---------link to button when clicked in html----------//
 //------------------------------------------------------//
-
-
-//   * then displayed in an alert or written to the page
 
 // Write password to the #password input
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
@@ -206,5 +235,6 @@ function writePassword() {
 
 
 // Add event listener to generate button
+
 generateBtn.addEventListener('click', writePassword);
 
